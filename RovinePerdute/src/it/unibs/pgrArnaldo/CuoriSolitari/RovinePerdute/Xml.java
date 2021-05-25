@@ -11,13 +11,22 @@ import java.util.ArrayList;
 
 public class Xml {
 
-    private ArrayList<City> array_city = null;
+    private static ArrayList<City> array_city;
 
+<<<<<<< HEAD
     public ArrayList<City> readCity( File file ) {
+=======
+    /**
+     * Crea un arraylist di città dopo aver ricevuto in input un XML
+     *
+     * @param file
+     * @return array_city
+     */
+    public static ArrayList<City> readCity(File file){
+>>>>>>> 726b34e59a4ea0f2c8bdabc84d0da1dd4fe25b0f
 
         XMLInputFactory xmlif = null;
         XMLStreamReader xmlr = null;
-        String codice = null;
 
         try {
             xmlif = XMLInputFactory.newInstance();
