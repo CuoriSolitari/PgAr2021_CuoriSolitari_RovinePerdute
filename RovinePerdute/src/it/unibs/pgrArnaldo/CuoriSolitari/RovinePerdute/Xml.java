@@ -13,9 +13,8 @@ public class Xml {
 
     private ArrayList<City> array_city = null;
 
-    public ArrayList<City> readCity(){
+    public ArrayList<City> readCity( File file ) {
 
-        File file = new File("RovinePerdute/src/test_file/PgAr_Map_5.xml");
         XMLInputFactory xmlif = null;
         XMLStreamReader xmlr = null;
         String codice = null;
