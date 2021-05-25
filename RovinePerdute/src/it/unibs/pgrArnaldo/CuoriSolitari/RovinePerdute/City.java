@@ -2,26 +2,26 @@ package it.unibs.pgrArnaldo.CuoriSolitari.RovinePerdute;
 
 import java.util.ArrayList;
 
-public class Città {
+public class City {
 
-    private Coordinata coord;
-    private String nome;
+    private Position coord;
+    private String name;
     private int id;
     private ArrayList<Integer> link;
 
-    public Città(Coordinata coord, String nome, int id, ArrayList<Integer> link) {
+    public City(Position coord, String name, int id, ArrayList<Integer> link) {
         this.coord = coord;
-        this.nome = nome;
+        this.name = name;
         this.id = id;
         this.link = link;
     }
 
-    public Coordinata getCoordinata() {
+    public Position getCoord() {
         return coord;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
     public int getId() {

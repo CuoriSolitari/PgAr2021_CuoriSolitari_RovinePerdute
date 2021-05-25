@@ -1,12 +1,12 @@
 package it.unibs.pgrArnaldo.CuoriSolitari.RovinePerdute;
 
-public class Coordinata {
+public class Position {
 
     private double coord_x;
     private double coord_y;
     private double coord_h;
 
-    public Coordinata(double coord_x, double coord_y, double coord_h) {
+    public Position(double coord_x, double coord_y, double coord_h) {
 
         this.coord_x = coord_x;
         this.coord_y = coord_y;
