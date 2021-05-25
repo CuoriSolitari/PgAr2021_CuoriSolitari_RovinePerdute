@@ -16,6 +16,16 @@ public class City {
         this.link = link;
     }
 
+    @Override
+    public String toString() {
+        return "City{" +
+                "coord=" + coord.getX() + " " + coord.getY() + " " + coord.getH() +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                ", link=" + link +
+                '}';
+    }
+
     public Position getCoord() {
         return coord;
     }

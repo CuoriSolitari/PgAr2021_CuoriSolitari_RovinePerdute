@@ -28,13 +28,14 @@ public class Xml {
         try {
             xmlif = XMLInputFactory.newInstance();
             xmlr = xmlif.createXMLStreamReader(String.valueOf(file), new FileInputStream(file));
+            int id = 0;
+            String name = null;
+            int x, y, h;
+            Position pos = null;
+
 
             while (xmlr.hasNext()){
 
-                int id = 0;
-                String name = null;
-                int x, y, h;
-                Position pos = null;
                 ArrayList<Integer> link_id = new ArrayList<>();
 
                 switch (xmlr.getEventType()){
@@ -65,7 +66,7 @@ public class Xml {
                             h = Integer.parseInt(_h);
                             pos = new Position(x, y, h);
                         }
-                        if ((xmlr.getLocalName()) == "link") {
+                        else if ((xmlr.getLocalName()) == "link") {
                             xmlr.next();
                             String _link = xmlr.getText();
                             link_id.add(Integer.parseInt(_link));
