@@ -13,9 +13,6 @@ public class Xml {
 
     private static ArrayList<City> array_city;
 
-<<<<<<< HEAD
-    public ArrayList<City> readCity( File file ) {
-=======
     /**
      * Crea un arraylist di città dopo aver ricevuto in input un XML
      *
@@ -23,7 +20,7 @@ public class Xml {
      * @return array_city
      */
     public static ArrayList<City> readCity(File file){
->>>>>>> 726b34e59a4ea0f2c8bdabc84d0da1dd4fe25b0f
+
 
         XMLInputFactory xmlif = null;
         XMLStreamReader xmlr = null;
@@ -31,21 +28,52 @@ public class Xml {
         try {
             xmlif = XMLInputFactory.newInstance();
             xmlr = xmlif.createXMLStreamReader(String.valueOf(file), new FileInputStream(file));
+
             while (xmlr.hasNext()){
+
+                int id = 0;
+                String name = null;
+                int x, y, h;
+                Position pos = null;
+                ArrayList<Integer> link_id = new ArrayList<>();
 
                 switch (xmlr.getEventType()){
 
                     case XMLStreamConstants.START_DOCUMENT:
                         break;
                     case XMLStreamConstants.START_ELEMENT:
-                        if ((xmlr.getLocalName()) == "codice") {
+                        if ((xmlr.getLocalName()) == "city") {
+                            //Legge l'id e lo trasforma da stringa in intero
                             xmlr.next();
-                            codice = xmlr.getText();
+                            String _id = xmlr.getText();
+                            id = Integer.parseInt(_id);
+
+                            //Legge il nome
+                            xmlr.next();
+                            name = xmlr.getText();
+
+                            //Legge le coordinate e poi le trasforma da stringhe a interi e infine crea una posizione
+                            xmlr.next();
+                            String _x = xmlr.getText();
+                            xmlr.next();
+                            String _y = xmlr.getText();
+                            xmlr.next();
+                            String _h = xmlr.getText();
+
+                            x = Integer.parseInt(_x);
+                            y = Integer.parseInt(_y);
+                            h = Integer.parseInt(_h);
+                            pos = new Position(x, y, h);
+                        }
+                        if ((xmlr.getLocalName()) == "link") {
+                            xmlr.next();
+                            String _link = xmlr.getText();
+                            link_id.add(Integer.parseInt(_link));
                         }
                         break;
                     case XMLStreamConstants.END_ELEMENT:
-                        if ((xmlr.getLocalName()) == "codice"){
-
+                        if ((xmlr.getLocalName()) == "city"){
+                            City city = new City(pos, name, id, link_id);
                         }
 
                         break;
