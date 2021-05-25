@@ -11,14 +11,18 @@ import java.util.ArrayList;
 
 public class Xml {
 
-    private ArrayList<City> array_city = null;
+    private static ArrayList<City> array_city;
 
-    public ArrayList<City> readCity(){
+    /**
+     * Crea un arraylist di città dopo aver ricevuto in input un XML
+     *
+     * @param file
+     * @return array_city
+     */
+    public static ArrayList<City> readCity(File file){
 
-        File file = new File("RovinePerdute/src/test_file/PgAr_Map_5.xml");
         XMLInputFactory xmlif = null;
         XMLStreamReader xmlr = null;
-        String codice = null;
 
         try {
             xmlif = XMLInputFactory.newInstance();
