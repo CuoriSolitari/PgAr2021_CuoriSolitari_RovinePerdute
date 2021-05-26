@@ -29,7 +29,7 @@ public class Xml {
             xmlr = xmlif.createXMLStreamReader(String.valueOf(file), new FileInputStream(file));
             int id = 0;
             String name = null;
-            int x, y, h;
+            Double x, y, h;
             Position pos = null;
 
 
@@ -55,9 +55,9 @@ public class Xml {
                             String _y = xmlr.getAttributeValue(3);
                             String _h = xmlr.getAttributeValue(4);
 
-                            x = Integer.parseInt(_x);
-                            y = Integer.parseInt(_y);
-                            h = Integer.parseInt(_h);
+                            x = Double.parseDouble(_x);
+                            y = Double.parseDouble(_y);
+                            h = Double.parseDouble(_h);
                             pos = new Position(x, y, h);
                         }
 
