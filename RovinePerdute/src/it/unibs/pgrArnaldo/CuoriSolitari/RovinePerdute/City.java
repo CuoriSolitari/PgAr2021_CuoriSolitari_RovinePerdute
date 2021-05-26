@@ -18,12 +18,15 @@ public class City {
 
     @Override
     public String toString() {
-        return "City{" +
-                "coord=" + coord.getX() + " " + coord.getY() + " " + coord.getH() +
-                ", name='" + name + '\'' +
-                ", id=" + id +
-                ", link=" + link +
-                '}';
+        StringBuilder sb = new StringBuilder("City{" + "coord=" + coord.getX() + " " + coord.getY() + " " + coord.getH() + ", name='" + name + '\'' + ", id=" + id );
+
+        for(int i=0; i<link.size(); i++){
+            sb.append("link %d: %d", i, link.get(i));
+        }
+
+        sb.append("}");
+
+        return sb.toString();
     }
 
     public Position getCoord() {
