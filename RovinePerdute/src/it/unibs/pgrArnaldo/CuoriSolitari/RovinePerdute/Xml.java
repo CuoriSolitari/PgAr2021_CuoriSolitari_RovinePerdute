@@ -68,8 +68,10 @@ public class Xml {
                         break;
                     case XMLStreamConstants.END_ELEMENT:
                         if ((xmlr.getLocalName()) == "city"){
+                            //crea e aggiunge la città all'array
                             City city = new City(pos, name, id, link_id);
                             array_city.add(city);
+                            //svuota l'array di link
                             link_id = new ArrayList<>();
                         }
 
