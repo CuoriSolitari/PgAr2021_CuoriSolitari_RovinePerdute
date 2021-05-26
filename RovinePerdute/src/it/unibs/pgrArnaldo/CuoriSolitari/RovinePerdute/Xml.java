@@ -31,11 +31,9 @@ public class Xml {
             String name = null;
             Double x, y, h;
             Position pos = null;
-
+            ArrayList<Integer> link_id = new ArrayList<>();
 
             while (xmlr.hasNext()){
-
-                ArrayList<Integer> link_id = new ArrayList<>();
 
                 switch (xmlr.getEventType()){
 
@@ -43,6 +41,7 @@ public class Xml {
                         break;
                     case XMLStreamConstants.START_ELEMENT:
                         if ((xmlr.getLocalName()) == "city") {
+
                             //Legge l'id e lo trasforma da stringa in intero
                             String _id = xmlr.getAttributeValue(0);
                             id = Integer.parseInt(_id);
@@ -61,7 +60,8 @@ public class Xml {
                             pos = new Position(x, y, h);
                         }
 
-                        if ((xmlr.getLocalName()) == "link") {
+                        else if ((xmlr.getLocalName()) == "link") {
+
                             String _link = xmlr.getAttributeValue(0);
                             link_id.add(Integer.parseInt(_link));
                         }
@@ -70,6 +70,7 @@ public class Xml {
                         if ((xmlr.getLocalName()) == "city"){
                             City city = new City(pos, name, id, link_id);
                             array_city.add(city);
+                            link_id = new ArrayList<>();
                         }
 
                         break;
@@ -78,6 +79,8 @@ public class Xml {
                         break;
                     case XMLStreamConstants.CHARACTERS:
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + xmlr.getEventType());
                 }
                 xmlr.next();
             }

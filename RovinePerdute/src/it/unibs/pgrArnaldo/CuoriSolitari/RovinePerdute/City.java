@@ -18,10 +18,10 @@ public class City {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("City{" + "coordinate=(" + coord.getX() + "; " + coord.getY() + "; " + coord.getH() + "), nome='" + name + '\'' + ", id=" + id );
+        StringBuilder sb = new StringBuilder("City{" + "coordinate=(" + coord.getX() + "; " + coord.getY() + "; " + coord.getH() + "), nome='" + name + '\'' + ", id=" + id + ",");
 
         for(int i=0; i<link.size(); i++){
-            sb.append("link %d: %d", i, link.get(i));
+            sb.append(String.format(" link %d: %d", i+1, link.get(i)));
         }
 
         sb.append("}");
