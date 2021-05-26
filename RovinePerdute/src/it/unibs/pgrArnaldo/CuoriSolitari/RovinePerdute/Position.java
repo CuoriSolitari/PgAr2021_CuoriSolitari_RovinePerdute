@@ -5,6 +5,8 @@ public class Position {
     private double coord_x;
     private double coord_y;
     private double coord_h;
+    private double dist;
+    private double dist_high;
 
     public Position(double coord_x, double coord_y, double coord_h) {
 
@@ -12,6 +14,22 @@ public class Position {
         this.coord_y = coord_y;
         this.coord_h = coord_h;
 
+    }
+
+    public double getDist(Position p1, Position p2){
+
+        dist = Math.sqrt((Math.pow((p2.getX() - p1.getX()), 2)) + (Math.pow((p2.getY() - p1.getY()), 2)));
+        return dist;
+    }
+
+    public double getHighDist(Position p1, Position p2){
+
+        dist_high = p1.getH() - p2.getH();
+
+        if(dist_high < 0)
+            dist_high = -dist_high;
+
+        return dist_high;
     }
 
     public double getX() {
