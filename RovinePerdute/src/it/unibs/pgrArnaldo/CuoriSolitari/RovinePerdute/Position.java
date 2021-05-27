@@ -16,12 +16,24 @@ public class Position {
 
     }
 
+    /**
+     *Calcola la distanza euclidea
+     * @param p1
+     * @param p2
+     * @return dist
+     */
     public double getDist(Position p1, Position p2){
 
         dist = Math.sqrt((Math.pow((p2.getX() - p1.getX()), 2)) + (Math.pow((p2.getY() - p1.getY()), 2)));
         return dist;
     }
 
+    /**
+     * Caòcola la differenza di altitudine
+     * @param p1
+     * @param p2
+     * @return dist_high
+     */
     public double getHighDist(Position p1, Position p2){
 
         dist_high = p1.getH() - p2.getH();
