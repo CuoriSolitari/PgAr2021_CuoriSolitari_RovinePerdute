@@ -6,7 +6,6 @@ public class Operations {
 
     private double dist;
     private double dist_high;
-    private ArrayList<Vertex> array_vertex;
 
     /**
      *Calcola la distanza euclidea
@@ -38,10 +37,19 @@ public class Operations {
 
     /**
      * Utilizza l'algoritmo di dijkstra per trovare la minima distanza dal punto di partenza
+     * @param array_city
      * @return array_vertex
      */
-    public ArrayList<Vertex> dijkstra(){
+    public void dijkstra(ArrayList<City> array_city, ArrayList<Vertex> vertex_dist, ArrayList<Vertex> vertex_high_dist){
 
-        return array_vertex;
+        for(City city: array_city){
+
+            for(Integer link: city.getLink()){
+
+
+            }
+
+        }
+
     }
 }
