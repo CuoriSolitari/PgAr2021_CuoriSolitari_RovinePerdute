@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class MainClass {
 
-    public static final String MSG_SCELTA = "Di quale squadra fate parte?\n1- Veicolo Tonatiuh\n2- Veicolo Metztli\n3- Esci";
+    public static final String MSG_CHOICE = "Di quale squadra fate parte?\n1- Veicolo Tonatiuh\n2- Veicolo Metztli\n3- Esci";
 
     public static void main(String[] args) {
 
@@ -23,19 +23,14 @@ public class MainClass {
             System.out.println(c);
         }
 
-        int comando;
+        int command;
         do{
-            System.out.println(MSG_SCELTA);
-            comando = InputDati.leggiIntero("Inserire un comando: ", 1, 3);
+            System.out.println(MSG_CHOICE);
+            command = InputDati.leggiIntero("Inserire un comando: ", 1, 3);
 
-            if(comando == 1){
 
-            }
-            else if (comando == 2){
 
-            }
-
-        } while (comando != 3);
+        } while (command != 3); //Scrive le mappe fino a quando si inserisce il comando tre di uscita
 
 
     }

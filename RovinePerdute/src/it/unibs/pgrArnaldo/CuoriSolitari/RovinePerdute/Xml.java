@@ -1,12 +1,10 @@
 package it.unibs.pgrArnaldo.CuoriSolitari.RovinePerdute;
 
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
+import javax.xml.stream.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class Xml {
@@ -96,5 +94,51 @@ public class Xml {
         }
 
         return  array_city;
+    }
+
+
+    /**
+     * Ricevendo in input il veicolo scrive in un XML il percorso più efficiente per quel particolare veicolo
+     * @param vehicle
+     */
+    public void writeMap(int vehicle){
+
+        XMLOutputFactory xmlof = null;
+        XMLStreamWriter xmlw = null;
+
+        if (vehicle == 1) {
+            try {
+                xmlof = XMLOutputFactory.newInstance();
+                xmlw = xmlof.createXMLStreamWriter(new FileOutputStream("it/unibs/prgarnaldo/cuorisolitari/codicefiscale/codiciPersone.xml"), "utf-8");
+                xmlw.writeStartDocument("utf-8", "1.0");
+
+                xmlw.writeStartElement("Output");
+                xmlw.writeStartElement("persone");
+                xmlw.writeComment("INIZIO LISTA");
+
+                xmlw.writeEndDocument();
+                xmlw.flush();
+                xmlw.close();
+            } catch (Exception e) {
+                System.out.println("Errore nella scrittura");
+            }
+        }
+        else if (vehicle == 2){
+            try {
+                xmlof = XMLOutputFactory.newInstance();
+                xmlw = xmlof.createXMLStreamWriter(new FileOutputStream("it/unibs/prgarnaldo/cuorisolitari/codicefiscale/codiciPersone.xml"), "utf-8");
+                xmlw.writeStartDocument("utf-8", "1.0");
+
+                xmlw.writeStartElement("Output");
+                xmlw.writeStartElement("persone");
+                xmlw.writeComment("INIZIO LISTA");
+
+                xmlw.writeEndDocument();
+                xmlw.flush();
+                xmlw.close();
+            } catch (Exception e) {
+                System.out.println("Errore nella scrittura");
+            }
+        }
     }
 }
