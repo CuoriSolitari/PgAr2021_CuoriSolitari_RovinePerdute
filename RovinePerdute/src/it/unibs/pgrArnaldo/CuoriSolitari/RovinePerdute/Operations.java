@@ -6,6 +6,7 @@ public class Operations {
 
     private double dist;
     private double dist_high;
+    private ArrayList<Vertex> vertex;
 
     /**
      *Calcola la distanza euclidea
@@ -35,5 +36,8 @@ public class Operations {
         return dist_high;
     }
 
+    public ArrayList<Vertex> dijkstra(){
 
+        return vertex;
+    }
 }

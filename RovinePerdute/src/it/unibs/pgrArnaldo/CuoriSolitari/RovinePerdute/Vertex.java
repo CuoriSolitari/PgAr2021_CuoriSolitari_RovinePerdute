@@ -1,12 +1,12 @@
 package it.unibs.pgrArnaldo.CuoriSolitari.RovinePerdute;
 
-public class Vertices {
+public class Vertex {
 
     private City city;
     private int from;
     private int distance;
 
-    public Vertices(City city, int from, int distance) {
+    public Vertex(City city, int from, int distance) {
         this.city = city;
         this.from = from;
         this.distance = distance;
