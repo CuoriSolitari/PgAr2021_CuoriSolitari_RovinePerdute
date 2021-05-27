@@ -6,7 +6,7 @@ public class Operations {
 
     private double dist;
     private double dist_high;
-    private ArrayList<Vertex> vertex;
+    private ArrayList<Vertex> array_vertex;
 
     /**
      *Calcola la distanza euclidea
@@ -21,7 +21,7 @@ public class Operations {
     }
 
     /**
-     * Caòcola la differenza di altitudine
+     * Calcola la differenza di altitudine
      * @param p1
      * @param p2
      * @return dist_high
@@ -36,8 +36,12 @@ public class Operations {
         return dist_high;
     }
 
+    /**
+     * Utilizza l'algoritmo di dijkstra per trovare la minima distanza dal punto di partenza
+     * @return array_vertex
+     */
     public ArrayList<Vertex> dijkstra(){
 
-        return vertex;
+        return array_vertex;
     }
 }
