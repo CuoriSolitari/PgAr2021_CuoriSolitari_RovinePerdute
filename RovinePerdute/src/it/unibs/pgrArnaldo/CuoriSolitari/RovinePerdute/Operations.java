@@ -38,9 +38,18 @@ public class Operations {
     /**
      * Utilizza l'algoritmo di dijkstra per trovare la minima distanza dal punto di partenza
      * @param array_city
-     * @return array_vertex
+     * @param vertex_dist
+     * @param vertex_high_dist
      */
     public void dijkstra(ArrayList<City> array_city, ArrayList<Vertex> vertex_dist, ArrayList<Vertex> vertex_high_dist){
+
+        //Inizializza i due arraylist con le città
+        Vertex vertex;
+        for(City city: array_city){
+            vertex = new Vertex(city, 0, Double.MAX_VALUE);
+            vertex_dist.add(vertex);
+            vertex_high_dist.add(vertex);
+        }
 
         for(City city: array_city){
 

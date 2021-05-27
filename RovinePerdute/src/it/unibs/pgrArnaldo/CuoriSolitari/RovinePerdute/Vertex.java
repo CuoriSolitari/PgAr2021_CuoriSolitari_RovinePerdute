@@ -4,9 +4,9 @@ public class Vertex {
 
     private City city;
     private int from;
-    private int distance;
+    private double distance;
 
-    public Vertex(City city, int from, int distance) {
+    public Vertex(City city, int from, double distance) {
         this.city = city;
         this.from = from;
         this.distance = distance;
@@ -20,7 +20,15 @@ public class Vertex {
         return from;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
+    }
+
+    public void setFrom(int from) {
+        this.from = from;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 }
