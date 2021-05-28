@@ -16,24 +16,19 @@ public class MainClass {
         ArrayList<City> array_city;
         ArrayList<Vertex> vertex_Tonatiuh = new ArrayList<>();
         ArrayList<Vertex> vertex_Metztli = new ArrayList<>();
-        Stack<Integer> stack;
+        Stack<Integer> stack_Tonatiuh;
+        Stack<Integer> stack_Metztli;
 
         File file = new File("RovinePerdute/src/test_file/PgAr_Map_5.xml");
         array_city = Xml.readCity(file);
 
-        for (City c : array_city){
-            System.out.println(c);
-        }
-
         Operations.dijkstra(array_city, vertex_Tonatiuh, vertex_Metztli);
-        for (Vertex v: vertex_Metztli){
-            System.out.println(v);
-        }
 
-        stack = Operations.getRoute(vertex_Metztli);
-        for(int i=0; i<stack.size(); i++){
-            System.out.println(stack.get(i));
-        }
+        stack_Tonatiuh = Operations.getRoute(vertex_Tonatiuh);
+        stack_Metztli = Operations.getRoute(vertex_Metztli);
+
+        Xml.writeRoad(vertex_Tonatiuh, vertex_Metztli, stack_Tonatiuh, stack_Metztli);
+
 
     }
 }

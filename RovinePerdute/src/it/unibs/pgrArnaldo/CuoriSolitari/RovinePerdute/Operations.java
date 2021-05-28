@@ -59,16 +59,42 @@ public class Operations {
 
                 double distance = getDist(city.getPosition(), vertex_dist.get(link).getCity().getPosition());
 
-                if(vertex_dist.get(link).getDistance() > (distance + vertex_dist.get(city.getId()).getDistance())){
-                    vertex_dist.get(link).setFrom(city.getId());
-                    vertex_dist.get(link).setDistance(distance + vertex_dist.get(city.getId()).getDistance());
+                if (vertex_dist.get(link).getDistance() >= (distance + vertex_dist.get(city.getId()).getDistance()) ){
+
+                    int id = city.getId();
+                    if (vertex_dist.get(link).getDistance() == (distance + vertex_dist.get(city.getId()).getDistance())) {
+
+                        Stack stack1 = getRoute(vertex_dist);
+                        int og_from = vertex_dist.get(link).getFrom();
+                        vertex_dist.get(link).setFrom(city.getId());
+                        Stack stack2 = getRoute(vertex_dist);
+
+                        if ( stack1.size() < stack2.size())
+                            id = og_from;
+                    }
+
+                    vertex_dist.get(link).setFrom(id);
+                    vertex_dist.get(link).setDistance(distance + vertex_dist.get(id).getDistance());
                 }
 
                 double high_distance = getHighDist(city.getPosition(), vertex_high_dist.get(link).getCity().getPosition());
 
-                if(vertex_high_dist.get(link).getDistance() > (high_distance + vertex_high_dist.get(city.getId()).getDistance())){
-                    vertex_high_dist.get(link).setFrom(city.getId());
-                    vertex_high_dist.get(link).setDistance(high_distance + vertex_high_dist.get(city.getId()).getDistance());
+                if (vertex_high_dist.get(link).getDistance() > (high_distance + vertex_high_dist.get(city.getId()).getDistance())) {
+
+                    int id = city.getId();
+                    if (vertex_high_dist.get(link).getDistance() == (high_distance + vertex_high_dist.get(city.getId()).getDistance())) {
+
+                        Stack stack1 = getRoute(vertex_high_dist);
+                        int og_from = vertex_high_dist.get(link).getFrom();
+                        vertex_high_dist.get(link).setFrom(city.getId());
+                        Stack stack2 = getRoute(vertex_high_dist);
+
+                        if ( stack1.size() < stack2.size())
+                            id = og_from;
+                    }
+
+                    vertex_high_dist.get(link).setFrom(id);
+                    vertex_high_dist.get(link).setDistance(high_distance + vertex_high_dist.get(id).getDistance());
                 }
 
             }
@@ -88,10 +114,10 @@ public class Operations {
 
         int id = array_vertex.size()-1;
         do {
-            stack_id.push(id);
+            stack_id.add(0, id);
             id = array_vertex.get(id).getFrom();
         } while ( id > 0 );
-        stack_id.add(id);
+        stack_id.add(0, id);
 
 
         return stack_id;
