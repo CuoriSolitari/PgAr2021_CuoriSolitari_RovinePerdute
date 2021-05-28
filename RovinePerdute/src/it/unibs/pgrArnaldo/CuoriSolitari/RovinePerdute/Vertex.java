@@ -12,6 +12,15 @@ public class Vertex {
         this.distance = distance;
     }
 
+    @Override
+    public String toString() {
+        return "Vertex{" +
+                "city=" + city +
+                ", from=" + from +
+                ", distance=" + distance +
+                '}';
+    }
+
     public City getCity() {
         return city;
     }

@@ -15,6 +15,8 @@ public class MainClass {
     public static void main(String[] args) {
 
         ArrayList<City> arry_city = new ArrayList<>();
+        ArrayList<Vertex> vertex_Tonatiuh = new ArrayList<>();
+        ArrayList<Vertex> vertex_Metztli = new ArrayList<>();
 
         File file = new File("RovinePerdute/src/test_file/PgAr_Map_5.xml");
         arry_city = Xml.readCity(file);
@@ -23,15 +25,10 @@ public class MainClass {
             System.out.println(c);
         }
 
-        int command;
-        do{
-            System.out.println(MSG_CHOICE);
-            command = InputDati.leggiIntero("Inserire un comando: ", 1, 3);
-
-
-
-        } while (command != 3); //Scrive le mappe fino a quando si inserisce il comando tre di uscita
-
+        Operations.dijkstra(arry_city, vertex_Tonatiuh, vertex_Metztli);
+        for (Vertex v: vertex_Metztli){
+            System.out.println(v);
+        }
 
     }
 }
