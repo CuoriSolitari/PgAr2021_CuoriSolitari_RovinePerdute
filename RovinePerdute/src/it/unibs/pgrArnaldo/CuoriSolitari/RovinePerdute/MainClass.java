@@ -22,13 +22,13 @@ public class MainClass {
         File file = new File("RovinePerdute/src/test_file/PgAr_Map_5.xml");
         array_city = Xml.readCity(file);
 
-        Operations.dijkstra(array_city, vertex_Tonatiuh, vertex_Metztli);
+        vertex_Tonatiuh = Operations.dijkstra(array_city);
+        vertex_Metztli = Operations.dijkstraHigh(array_city);
 
         stack_Tonatiuh = Operations.getRoute(vertex_Tonatiuh);
         stack_Metztli = Operations.getRoute(vertex_Metztli);
 
         Xml.writeRoad(vertex_Tonatiuh, vertex_Metztli, stack_Tonatiuh, stack_Metztli);
-
 
     }
 }
