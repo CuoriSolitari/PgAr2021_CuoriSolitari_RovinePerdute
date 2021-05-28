@@ -137,7 +137,7 @@ public class Xml {
                 xmlw.writeAttribute("cost", String.valueOf(vertex2.get(vertex2.size() - 1).getDistance()));
                 xmlw.writeAttribute("cities", String.valueOf(stack2.size()));
                 xmlw.writeCharacters("\n");
-                    for(int i = 0; i < stack1.size(); i++){
+                    for(int i = 0; i < stack2.size(); i++){
                         xmlw.writeCharacters("      ");
                         xmlw.writeStartElement("city");
                         xmlw.writeAttribute("id", String.valueOf(vertex2.get(stack2.get(i)).getCity().getId()));
