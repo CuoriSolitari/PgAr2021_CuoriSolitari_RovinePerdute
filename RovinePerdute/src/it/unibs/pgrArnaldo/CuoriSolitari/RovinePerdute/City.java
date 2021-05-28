@@ -29,7 +29,7 @@ public class City {
         return sb.toString();
     }
 
-    public Position getCoord() {
+    public Position getPosition() {
         return coord;
     }
 

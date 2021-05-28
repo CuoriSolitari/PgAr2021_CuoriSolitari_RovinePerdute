@@ -46,15 +46,30 @@ public class Operations {
         //Inizializza i due arraylist con le città
         Vertex vertex;
         for(City city: array_city){
-            vertex = new Vertex(city, 0, Double.MAX_VALUE);
+            vertex = new Vertex(city, null, Double.MAX_VALUE);
             vertex_dist.add(vertex);
             vertex_high_dist.add(vertex);
         }
+        vertex_dist.get(0).setDistance(0);
+        vertex_high_dist.get(0).setDistance(0);
 
         for(City city: array_city){
 
             for(Integer link: city.getLink()){
 
+                double distance = getDist(city.getPosition(), vertex_dist.get(link).getCity().getPosition());
+
+                if(vertex_dist.get(link).getDistance() > distance){
+                    vertex_dist.get(link).setFrom(city.getId());
+                    vertex_dist.get(link).setDistance(distance + vertex_dist.get(city.getId()).getDistance());
+                }
+
+                double high_distance = getHighDist(city.getPosition(), vertex_high_dist.get(link).getCity().getPosition());
+
+                if(vertex_high_dist.get(link).getDistance() > high_distance){
+                    vertex_high_dist.get(link).setFrom(city.getId());
+                    vertex_high_dist.get(link).setDistance(high_distance + vertex_high_dist.get(city.getId()).getDistance());
+                }
 
             }
 
