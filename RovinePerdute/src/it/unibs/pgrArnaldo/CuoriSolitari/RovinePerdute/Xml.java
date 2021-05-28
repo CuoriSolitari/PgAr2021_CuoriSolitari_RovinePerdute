@@ -107,35 +107,48 @@ public class Xml {
             xmlof = XMLOutputFactory.newInstance();
             xmlw = xmlof.createXMLStreamWriter(new FileOutputStream("RovinePerdute/src/it/unibs/pgrArnaldo/CuoriSolitari/RovinePerdute/Routes.xml"), "utf-8");
             xmlw.writeStartDocument("utf-8", "1.0");
+            xmlw.writeCharacters("\n");
 
             xmlw.writeStartElement("routes");
-
+            xmlw.writeCharacters("\n");
                 //Route del veicolo Tonathiu
+                xmlw.writeCharacters("  ");
                 xmlw.writeStartElement("route");
                 xmlw.writeAttribute("team", "Tonathiu");
-                xmlw.writeAttribute("coast", String.valueOf(vertex1.get(vertex1.size() - 1).getDistance()));
+                xmlw.writeAttribute("cost", String.valueOf(vertex1.get(vertex1.size() - 1).getDistance()));
                 xmlw.writeAttribute("cities", String.valueOf(stack1.size()));
+                xmlw.writeCharacters("\n");
                     for(int i = 0; i < stack1.size(); i++){
+                        xmlw.writeCharacters("      ");
                         xmlw.writeStartElement("city");
-                            xmlw.writeAttribute("id", String.valueOf(vertex1.get(stack1.get(i)).getCity().getId()));
-                            xmlw.writeAttribute("name", String.valueOf(vertex1.get(stack1.get(i)).getCity().getName()));
+                        xmlw.writeAttribute("id", String.valueOf(vertex1.get(stack1.get(i)).getCity().getId()));
+                        xmlw.writeAttribute("name", String.valueOf(vertex1.get(stack1.get(i)).getCity().getName()));
                         xmlw.writeEndElement();
+                        xmlw.writeCharacters("\n");
                     }
+                xmlw.writeCharacters("  ");
                 xmlw.writeEndElement();
+                xmlw.writeCharacters("\n");
 
                 //Route del veicolo Metztli
+                xmlw.writeCharacters("  ");
                 xmlw.writeStartElement("route");
                 xmlw.writeAttribute("team", "Metztli");
-                xmlw.writeAttribute("coast", String.valueOf(vertex2.get(vertex2.size() - 1).getDistance()));
+                xmlw.writeAttribute("cost", String.valueOf(vertex2.get(vertex2.size() - 1).getDistance()));
                 xmlw.writeAttribute("cities", String.valueOf(stack2.size()));
+                xmlw.writeCharacters("\n");
                     for(int i = 0; i < stack1.size(); i++){
-                       xmlw.writeStartElement("city");
+                        xmlw.writeCharacters("      ");
+                        xmlw.writeStartElement("city");
                         xmlw.writeAttribute("id", String.valueOf(vertex2.get(stack2.get(i)).getCity().getId()));
                         xmlw.writeAttribute("name", String.valueOf(vertex2.get(stack2.get(i)).getCity().getName()));
-                       xmlw.writeEndElement();
+                        xmlw.writeEndElement();
+                        xmlw.writeCharacters("\n");
                     }
+                xmlw.writeCharacters("  ");
                 xmlw.writeEndElement();
 
+            xmlw.writeCharacters("\n");
             xmlw.writeEndElement();
 
             xmlw.writeEndDocument();
