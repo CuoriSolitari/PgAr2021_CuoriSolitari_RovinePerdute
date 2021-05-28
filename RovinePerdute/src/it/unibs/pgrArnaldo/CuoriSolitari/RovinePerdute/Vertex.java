@@ -41,3 +41,4 @@ public class Vertex {
         this.distance = distance;
     }
 }
+

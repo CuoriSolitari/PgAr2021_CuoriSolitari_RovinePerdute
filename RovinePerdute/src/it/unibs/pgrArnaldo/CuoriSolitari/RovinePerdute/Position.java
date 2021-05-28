@@ -14,8 +14,6 @@ public class Position {
 
     }
 
-
-
     public double getX() {
         return coord_x;
     }
