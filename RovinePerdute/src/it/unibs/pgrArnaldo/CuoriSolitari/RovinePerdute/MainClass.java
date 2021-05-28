@@ -7,27 +7,32 @@ import javax.xml.stream.XMLStreamReader;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class MainClass {
 
-    public static final String MSG_CHOICE = "Di quale squadra fate parte?\n1- Veicolo Tonatiuh\n2- Veicolo Metztli\n3- Esci";
-
     public static void main(String[] args) {
 
-        ArrayList<City> arry_city = new ArrayList<>();
+        ArrayList<City> array_city;
         ArrayList<Vertex> vertex_Tonatiuh = new ArrayList<>();
         ArrayList<Vertex> vertex_Metztli = new ArrayList<>();
+        Stack<Integer> stack;
 
         File file = new File("RovinePerdute/src/test_file/PgAr_Map_5.xml");
-        arry_city = Xml.readCity(file);
+        array_city = Xml.readCity(file);
 
-        for (City c : arry_city){
+        for (City c : array_city){
             System.out.println(c);
         }
 
-        Operations.dijkstra(arry_city, vertex_Tonatiuh, vertex_Metztli);
+        Operations.dijkstra(array_city, vertex_Tonatiuh, vertex_Metztli);
         for (Vertex v: vertex_Metztli){
             System.out.println(v);
+        }
+
+        stack = Operations.getRoute(vertex_Metztli);
+        for(int i=0; i<stack.size(); i++){
+            System.out.println(stack.get(i));
         }
 
     }

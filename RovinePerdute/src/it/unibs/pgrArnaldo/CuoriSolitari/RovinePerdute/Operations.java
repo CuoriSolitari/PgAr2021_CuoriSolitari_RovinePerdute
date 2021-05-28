@@ -1,6 +1,7 @@
 package it.unibs.pgrArnaldo.CuoriSolitari.RovinePerdute;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Operations {
 
@@ -74,5 +75,25 @@ public class Operations {
 
         }
 
+    }
+
+    /**
+     * Crea una stack con gli id del percorso più veloce per raggingere l'ultimo elemento dell'array di nodi
+     * @param array_vertex
+     * @return stack_id
+     */
+    public static Stack<Integer> getRoute(ArrayList<Vertex> array_vertex){
+
+        Stack<Integer> stack_id = new Stack<>();
+
+        int id = array_vertex.size()-1;
+        do {
+            stack_id.push(id);
+            id = array_vertex.get(id).getFrom();
+        } while ( id > 0 );
+        stack_id.add(id);
+
+
+        return stack_id;
     }
 }
