@@ -38,7 +38,7 @@ public class Operations {
 
     /**
      * Tramite l'algoritmo di Dijkstra trova la minima distanza dell'array di nodi
-     * In questo caso della distanza del veicolo
+     * In questo caso della distanza del veicolo Tonatiuh
      * @param array_city
      * @return vertex_dist
      */
@@ -57,9 +57,21 @@ public class Operations {
             for(Integer link: city.getLink()) {
 
                 double distance = getDist(city.getPosition(), vertex_dist.get(link).getCity().getPosition()) + vertex_dist.get(city.getId()).getDistance();
-                if ( distance < vertex_dist.get(link).getDistance()) {
+                if ( distance <= vertex_dist.get(link).getDistance() ) {
+
+                    int id = city.getId();
+                    if ( distance == vertex_dist.get(link).getDistance() ) {
+
+                        Stack stack1 = getRoute(vertex_dist);
+                        int og_from = vertex_dist.get(link).getFrom();
+                        vertex_dist.get(link).setFrom(city.getId());
+                        Stack stack2 = getRoute(vertex_dist);
+
+                        if ( stack1.size() < stack2.size())
+                            id = og_from;
+                    }
                     vertex_dist.get(link).setDistance(distance);
-                    vertex_dist.get(link).setFrom(city.getId());
+                    vertex_dist.get(link).setFrom(id);
                 }
             }
         }
@@ -68,7 +80,7 @@ public class Operations {
 
     /**
      * Tramite l'algoritmo di Dijkstra trova la minima distanza dell'array di nodi
-     * In questo caso della distanza del veicolo
+     * In questo caso della distanza del veicolo Metztli
      * @param array_city
      * @return vertex_high_dist
      */
@@ -87,9 +99,21 @@ public class Operations {
             for(Integer link: city.getLink()) {
 
                 double distance = getHighDist(city.getPosition(), vertex_high_dist.get(link).getCity().getPosition()) + vertex_high_dist.get(city.getId()).getDistance();
-                if ( distance < vertex_high_dist.get(link).getDistance()) {
+                if ( distance <= vertex_high_dist.get(link).getDistance()) {
+
+                    int id = city.getId();
+                    if ( distance == vertex_high_dist.get(link).getDistance() ) {
+
+                        Stack stack1 = getRoute(vertex_high_dist);
+                        int og_from = vertex_high_dist.get(link).getFrom();
+                        vertex_high_dist.get(link).setFrom(city.getId());
+                        Stack stack2 = getRoute(vertex_high_dist);
+
+                        if ( stack1.size() < stack2.size())
+                            id = og_from;
+                    }
                     vertex_high_dist.get(link).setDistance(distance);
-                    vertex_high_dist.get(link).setFrom(city.getId());
+                    vertex_high_dist.get(link).setFrom(id);
                 }
             }
         }

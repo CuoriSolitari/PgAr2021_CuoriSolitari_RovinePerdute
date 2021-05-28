@@ -19,7 +19,7 @@ public class MainClass {
         Stack<Integer> stack_Tonatiuh;
         Stack<Integer> stack_Metztli;
 
-        File file = new File("RovinePerdute/src/test_file/PgAr_Map_5.xml");
+        File file = new File("RovinePerdute/src/test_file/PgAr_Map_10000.xml");
         array_city = Xml.readCity(file);
 
         vertex_Tonatiuh = Operations.dijkstra(array_city);
